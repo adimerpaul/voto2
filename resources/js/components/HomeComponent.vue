@@ -37,7 +37,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <p>Seleccione el archivo excel a importar,esta opcion reeplaza todos los registros existentes y por los nuevos datos</p>
-                                        <input type="file" id="file" ref="file" @change="handleFileUpload()" accept=".XLSX, .CSV" class="form-control">
+                                        <input type="file" id="file" ref="file" @change="loadCSV($event)" accept=".XLSX, .CSV" class="form-control">
 <!--                                        <table v-if="parse_csv" border="1">-->
 <!--                                            <tr v-for="csv in parse_csv">-->
 <!--                                                <td v-for="key in parse_header">-->
@@ -47,7 +47,7 @@
 <!--                                        </table>-->
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" v-on:click="EventSubir()">Importar datos</button>
+                                        <button type="button" class="btn btn-primary" v-on:click="EventSubir">Importar datos</button>
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                                     </div>
                                 </div>
@@ -103,7 +103,7 @@
           }
         },
         mounted() {
-            console.log('Component mounted.')
+            console.log('Component mountedasdadsada.')
         },
         methods:{
             modal(){
@@ -126,24 +126,25 @@
             },
             async EventSubir(){
                 // this.$loading(true);
-                let formData = new FormData();
-                formData.append('file', this.file);
-                axios.post( '/import-excel-personas', formData,{
-                        headers: {
-                            'Content-Type': 'multipart/form-data'
-                        },
-                    onUploadProgress (e) {
-                            let progress = Math.round((e.loaded * 100.0) / e.total);
-                            console.log(progress);
-                        }
-                }).then(function(){
-                        console.log('SUCCESS!!');
-                        // this.$loading(false);
-                    })
-                    .catch(function(){
-                        console.log('FAILURE!!');
-                        // this.$loading(false);
-                    });
+                // let formData = new FormData();
+                // formData.append('file', this.file);
+                // axios.post( '/import-excel-personas', formData,{
+                //         headers: {
+                //             'Content-Type': 'multipart/form-data'
+                //         },
+                //     onUploadProgress (e) {
+                //             let progress = Math.round((e.loaded * 100.0) / e.total);
+                //             console.log(progress);
+                //         }
+                // }).then(function(){
+                //         console.log('SUCCESS!!');
+                //         // this.$loading(false);
+                //     })
+                //     .catch(function(){
+                //         console.log('FAILURE!!');
+                //         // this.$loading(false);
+                //     });
+
                 // this.$Progress.start()
                 // await this.parse_csv.forEach(async (res)=>{
                 //     // console.log(res);
@@ -162,6 +163,12 @@
                 //     console.log(error)
                 //     this.$Progress.fail()
                 // })
+                await this.parse_csv.forEach(async dat=>{
+                    console.log(dat)
+                    // axios.post('/users',dat).then( async res=>{
+                    //     console.log(res);
+                    // });
+                })
             },
             handleFileUpload(){
                 this.file = this.$refs.file.files[0];
@@ -227,11 +234,12 @@
                     result.push(obj)
                 })
 
-                // result.pop() // remove the last item because undefined values
+                result.pop() // remove the last item because undefined values
                 // console.log(result)
                 return result // JavaScript object
             },
             loadCSV(e) {
+                // console.log('aa');
                 var vm = this
                 if (window.FileReader) {
                     var reader = new FileReader();

@@ -2054,7 +2054,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   mounted: function mounted() {
-    console.log('Component mounted.');
+    console.log('Component mountedasdadsada.');
   },
   methods: {
     modal: function modal() {
@@ -2077,52 +2077,41 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     EventSubir: function EventSubir() {
       var _this = this;
 
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var formData;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context.prev = _context.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
-                // this.$loading(true);
-                formData = new FormData();
-                formData.append('file', _this.file);
-                axios.post('/import-excel-personas', formData, {
-                  headers: {
-                    'Content-Type': 'multipart/form-data'
-                  },
-                  onUploadProgress: function onUploadProgress(e) {
-                    var progress = Math.round(e.loaded * 100.0 / e.total);
-                    console.log(progress);
-                  }
-                }).then(function () {
-                  console.log('SUCCESS!!'); // this.$loading(false);
-                })["catch"](function () {
-                  console.log('FAILURE!!'); // this.$loading(false);
-                }); // this.$Progress.start()
-                // await this.parse_csv.forEach(async (res)=>{
-                //     // console.log(res);
-                //     await axios.post('/users',res).then(async (res)=>{
-                //         await console.log(res);
-                //     })
-                // })
-                // this.$Progress.finish()}
-                // this.$Progress.start()
-                // let formData= new FormData();
-                // formData.append('data',JSON.stringify(this.parse_csv));
-                // axios.post('/users',formData).then(res=>{
-                //     console.log(res);
-                //     this.$Progress.finish()
-                // }).catch(error=>{
-                //     console.log(error)
-                //     this.$Progress.fail()
-                // })
+                _context2.next = 2;
+                return _this.parse_csv.forEach( /*#__PURE__*/function () {
+                  var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(dat) {
+                    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+                      while (1) {
+                        switch (_context.prev = _context.next) {
+                          case 0:
+                            console.log(dat); // axios.post('/users',dat).then( async res=>{
+                            //     console.log(res);
+                            // });
 
-              case 3:
+                          case 1:
+                          case "end":
+                            return _context.stop();
+                        }
+                      }
+                    }, _callee);
+                  }));
+
+                  return function (_x) {
+                    return _ref.apply(this, arguments);
+                  };
+                }());
+
+              case 2:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee);
+        }, _callee2);
       }))();
     },
     handleFileUpload: function handleFileUpload() {
@@ -2187,12 +2176,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           obj[header.trim()] = currentline[indexHeader];
         });
         result.push(obj);
-      }); // result.pop() // remove the last item because undefined values
+      });
+      result.pop(); // remove the last item because undefined values
       // console.log(result)
 
       return result; // JavaScript object
     },
     loadCSV: function loadCSV(e) {
+      // console.log('aa');
       var vm = this;
 
       if (window.FileReader) {
@@ -39391,7 +39382,7 @@ var render = function() {
                         },
                         on: {
                           change: function($event) {
-                            return _vm.handleFileUpload()
+                            return _vm.loadCSV($event)
                           }
                         }
                       })
@@ -39403,11 +39394,7 @@ var render = function() {
                         {
                           staticClass: "btn btn-primary",
                           attrs: { type: "button" },
-                          on: {
-                            click: function($event) {
-                              return _vm.EventSubir()
-                            }
-                          }
+                          on: { click: _vm.EventSubir }
                         },
                         [_vm._v("Importar datos")]
                       ),
@@ -55158,8 +55145,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laravel\voto\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\laravel\voto\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\laravel\voto2\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\laravel\voto2\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

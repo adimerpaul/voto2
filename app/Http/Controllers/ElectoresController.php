@@ -30,38 +30,38 @@ class ElectoresController extends Controller
      */
     public function store(Request $request)
     {
-//        $user=new User([
-//            "name"=>$request->get("name"),
-//            "email"=>$request->get("email"),
-//            "password"=>Hash::make($request->get("password")),
-//        ]);
-//        $user->save();
-//        return $request;
+        $user=new User([
+            "name"=>$request->get("name"),
+            "email"=>$request->get("email"),
+            "password"=>Hash::make($request->get("password")),
+        ]);
+        $user->save();
+        return $request;
 //        $data=json_decode($request->data);
 //        $t=" 01 ";
 //        for ($i=0;$i<count($data);$i++){
 //            echo $t;
 //        }
 //        $array = array(1, 2, 3, 4);
-        $array=json_decode($request->data);
-        $users=[];
-        foreach ($array as &$valor) {
-//            $valor = $valor * 2;
-//            echo $valor->name;
-//            $user=new User([
-//                "name"=>$valor->name,
-//                "email"=>$valor->email,
-//                "password"=>Hash::make($valor->name),
-//            ]);
-//            $users[]=;
-            $users[] = [
-                'name' => $valor->name,
-                'email' => $valor->email,
-                'password' => Hash::make($valor->password)
-            ];
-        }
-        User::insert($array);
-        return $array;
+//        $array=json_decode($request->data);
+//        $users=[];
+//        foreach ($array as &$valor) {
+////            $valor = $valor * 2;
+////            echo $valor->name;
+////            $user=new User([
+////                "name"=>$valor->name,
+////                "email"=>$valor->email,
+////                "password"=>Hash::make($valor->name),
+////            ]);
+////            $users[]=;
+//            $users[] = [
+//                'name' => $valor->name,
+//                'email' => $valor->email,
+//                'password' => Hash::make($valor->password)
+//            ];
+//        }
+//        User::insert($array);
+//        return $array;
     }
 
     /**
