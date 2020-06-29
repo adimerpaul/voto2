@@ -368,21 +368,22 @@
                 <li>
 {{--                <a @click.prevent="" href="">--}}
                     <router-link  :to="{name:'home'}">
-{{--                    <i class="fa fa-th"></i> <span> Electores </span>--}}
-                        asdsad
+                        <i class="fa fa-th"></i> <span> Electores </span>
                     </router-link>
-                    <router-link  :to="{name:'example'}">
-                        {{--                    <i class="fa fa-th"></i> <span> Electores </span>--}}
-                        asdsad
+                </li>
+                <li>
+                    <router-link  :to="{name:'candidato'}">
+                        <i class="fa fa-users"></i> <span> Candidatos </span>
+{{--                        asdsad--}}
                     </router-link>
 {{--                </a>--}}
                 </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-pie-chart"></i>
-                        <span>Candidatos</span>
-                    </a>
-                </li>
+{{--                <li class="treeview">--}}
+{{--                    <a href="#">--}}
+{{--                        <i class="fa fa-pie-chart"></i>--}}
+{{--                        <span>Candidatos</span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
                 <li class="treeview">
                     <a href="#">
                         <i class="fa fa-laptop"></i>

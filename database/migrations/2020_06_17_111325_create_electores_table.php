@@ -18,7 +18,7 @@ class CreateElectoresTable extends Migration
             $table->string('ci');
             $table->string('nombres');
             $table->string('mesa');
-            $table->string('votacion');
+            $table->string('votacion')->default('No Emitido');
             $table->timestamps();
         });
     }

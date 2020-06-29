@@ -20,5 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/candidato', 'HomeController@index');
 Route::post('/import-excel-personas','ElectoresController@ImportPersonas');
-Route::apiResource('/users','ElectoresController');
+Route::apiResource('/elector','ElectoresController');
+Route::post('/wordElector','ElectoresController@wordElector')->middleware('auth')->name('wordElector');
+Route::delete('/eliminar/{elector}','ElectoresController@eliminar')->middleware('auth');

@@ -8,6 +8,8 @@ require('./bootstrap');
 
 import Vue from 'vue';
 import $ from 'jquery';
+
+
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 import VueLoading from 'vuejs-loading-plugin';
@@ -18,13 +20,22 @@ Vue.use(VueProgressBar, {
     failedColor: 'red',
     height: '2px'
 })
+import VueToastr from "vue-toastr";
+Vue.use(VueToastr);
+Vue.config.productionTip = false;
+
+import vueSimpleAlert from 'vue-simple-alert';
+Vue.use(vueSimpleAlert);
+import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
+
 import Example from './components/ExampleComponent';
 import Home from './components/HomeComponent';
+import Candidato from './components/CandidatoComponent';
 const router=new VueRouter({
     mode:'history',
     routes:[
         {path:'/home',name:'home',component:Home},
-        {path:'/example',name:'example',component:Example},
+        {path:'/candidato',name:'candidato',component:Candidato},
     ]
 });
 // const app = new Vue({
@@ -33,7 +44,20 @@ const router=new VueRouter({
 //     router
 // });
 const app = new Vue({
+    // render: h => h(Home),
     el: '#app',
-    components:{Home},
-    router
+    components:{
+        Home,
+        PulseLoader
+    },
+    router,
+    mounted() {
+        // You are able to access plugin from everywhere via this.$toastr
+        this.$toastr.defaultPosition = "toast-top-left";
+        // Send message to browser screen
+        // let pdfName = 'test';
+        // var doc = new jsPDF();
+        // doc.text("Hello World", 10, 10);
+        // doc.save(pdfName + '.pdf');
+    }
 });
