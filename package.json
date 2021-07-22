@@ -38,6 +38,6 @@
         "vue-spinner": "^1.0.3",
         "vue-toastr": "^2.1.2",
         "vuejs-loading-plugin": "^1.0.51",
-        "xlsx": "^0.16.2"
+        "xlsx": "^0.17.0"
     }
 }
